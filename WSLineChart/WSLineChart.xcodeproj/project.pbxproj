@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8882023D1DDD892B005AF441 /* WSLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8882023C1DDD892B005AF441 /* WSLineChartView.m */; };
+		888202401DDD8A2B005AF441 /* XAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8882023F1DDD8A2B005AF441 /* XAxisView.m */; };
+		888202431DDD8A33005AF441 /* YAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 888202421DDD8A33005AF441 /* YAxisView.m */; };
+		8882024A1DDD91D1005AF441 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 888202451DDD91D1005AF441 /* SVProgressHUD.bundle */; };
+		8882024B1DDD91D1005AF441 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 888202471DDD91D1005AF441 /* SVProgressHUD.m */; };
+		8882024C1DDD91D1005AF441 /* TBActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 888202491DDD91D1005AF441 /* TBActivityView.m */; };
 		889097621DD9EAC700F2DEAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 889097611DD9EAC700F2DEAF /* main.m */; };
 		889097651DD9EAC700F2DEAF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 889097641DD9EAC700F2DEAF /* AppDelegate.m */; };
 		889097681DD9EAC700F2DEAF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889097671DD9EAC700F2DEAF /* ViewController.m */; };
@@ -16,6 +22,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8882023B1DDD892B005AF441 /* WSLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLineChartView.h; sourceTree = "<group>"; };
+		8882023C1DDD892B005AF441 /* WSLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLineChartView.m; sourceTree = "<group>"; };
+		8882023E1DDD8A2B005AF441 /* XAxisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAxisView.h; sourceTree = "<group>"; };
+		8882023F1DDD8A2B005AF441 /* XAxisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAxisView.m; sourceTree = "<group>"; };
+		888202411DDD8A33005AF441 /* YAxisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAxisView.h; sourceTree = "<group>"; };
+		888202421DDD8A33005AF441 /* YAxisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAxisView.m; sourceTree = "<group>"; };
+		888202451DDD91D1005AF441 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		888202461DDD91D1005AF441 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		888202471DDD91D1005AF441 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		888202481DDD91D1005AF441 /* TBActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBActivityView.h; sourceTree = "<group>"; };
+		888202491DDD91D1005AF441 /* TBActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBActivityView.m; sourceTree = "<group>"; };
 		8890975D1DD9EAC700F2DEAF /* WSLineChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSLineChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		889097611DD9EAC700F2DEAF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		889097631DD9EAC700F2DEAF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,6 +56,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		888202371DDD88C9005AF441 /* WSLineChartView */ = {
+			isa = PBXGroup;
+			children = (
+				888202441DDD91D1005AF441 /* SVProgressHUD */,
+				8882023B1DDD892B005AF441 /* WSLineChartView.h */,
+				8882023C1DDD892B005AF441 /* WSLineChartView.m */,
+				8882023E1DDD8A2B005AF441 /* XAxisView.h */,
+				8882023F1DDD8A2B005AF441 /* XAxisView.m */,
+				888202411DDD8A33005AF441 /* YAxisView.h */,
+				888202421DDD8A33005AF441 /* YAxisView.m */,
+			);
+			path = WSLineChartView;
+			sourceTree = "<group>";
+		};
+		888202441DDD91D1005AF441 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				888202451DDD91D1005AF441 /* SVProgressHUD.bundle */,
+				888202461DDD91D1005AF441 /* SVProgressHUD.h */,
+				888202471DDD91D1005AF441 /* SVProgressHUD.m */,
+				888202481DDD91D1005AF441 /* TBActivityView.h */,
+				888202491DDD91D1005AF441 /* TBActivityView.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		889097541DD9EAC700F2DEAF = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +105,7 @@
 				889097641DD9EAC700F2DEAF /* AppDelegate.m */,
 				889097661DD9EAC700F2DEAF /* ViewController.h */,
 				889097671DD9EAC700F2DEAF /* ViewController.m */,
+				888202371DDD88C9005AF441 /* WSLineChartView */,
 				889097691DD9EAC700F2DEAF /* Main.storyboard */,
 				8890976C1DD9EAC700F2DEAF /* Assets.xcassets */,
 				8890976E1DD9EAC700F2DEAF /* LaunchScreen.storyboard */,
@@ -139,6 +183,7 @@
 				889097701DD9EAC700F2DEAF /* LaunchScreen.storyboard in Resources */,
 				8890976D1DD9EAC700F2DEAF /* Assets.xcassets in Resources */,
 				8890976B1DD9EAC700F2DEAF /* Main.storyboard in Resources */,
+				8882024A1DDD91D1005AF441 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,8 +195,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				889097681DD9EAC700F2DEAF /* ViewController.m in Sources */,
+				8882024C1DDD91D1005AF441 /* TBActivityView.m in Sources */,
+				888202431DDD8A33005AF441 /* YAxisView.m in Sources */,
 				889097651DD9EAC700F2DEAF /* AppDelegate.m in Sources */,
+				8882024B1DDD91D1005AF441 /* SVProgressHUD.m in Sources */,
 				889097621DD9EAC700F2DEAF /* main.m in Sources */,
+				888202401DDD8A2B005AF441 /* XAxisView.m in Sources */,
+				8882023D1DDD892B005AF441 /* WSLineChartView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WSLineChart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sinfotek.WSLineChart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -275,6 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WSLineChart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sinfotek.WSLineChart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,6 +352,7 @@
 				889097761DD9EAC700F2DEAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
