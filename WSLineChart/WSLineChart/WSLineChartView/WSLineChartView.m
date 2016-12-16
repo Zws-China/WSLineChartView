@@ -211,6 +211,7 @@
     
     if(longPress.state == UIGestureRecognizerStateEnded)
     {
+        _moveDistance = 0;
         //恢复scrollView的滑动
         [self.xAxisView setIsLongPress:NO];
         [self.xAxisView setIsShowLabel:NO];
