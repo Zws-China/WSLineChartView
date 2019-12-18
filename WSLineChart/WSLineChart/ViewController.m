@@ -18,19 +18,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithRed:85.0f/255.0f green:85.0f/255.0f blue:85.0f/255.0f alpha:1.0f];
+    self.view.backgroundColor = [UIColor whiteColor];
 
     NSMutableArray *xArray = [NSMutableArray array];
     NSMutableArray *yArray = [NSMutableArray array];
-    for (NSInteger i = 0; i < 50; i++) {
+    for (NSInteger i = 0; i < 100; i++) {
         
-        [xArray addObject:[NSString stringWithFormat:@"%.1f",3+0.1*i]];
+        [xArray addObject:[NSString stringWithFormat:@"%ld",i]];
         [yArray addObject:[NSString stringWithFormat:@"%.2lf",20.0+arc4random_uniform(10)]];
         
     }
     
+    //这里你可以计算出yArray的最大最小值。设置为曲线的最大最小值，这样画出来的线占据整个y轴高度。
+    //..........
     
-    WSLineChartView *wsLine = [[WSLineChartView alloc]initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, 500) xTitleArray:xArray yValueArray:yArray yMax:100 yMin:0];
+    WSLineChartView *wsLine = [[WSLineChartView alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height-200) xTitleArray:xArray yValueArray:yArray yMax:40 yMin:10 yTypeName:@"高考成绩" xTypeName:@"考生号" unit:@"分"];
     [self.view addSubview:wsLine];
     
 }

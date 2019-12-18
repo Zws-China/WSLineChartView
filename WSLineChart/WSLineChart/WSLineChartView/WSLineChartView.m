@@ -1,20 +1,20 @@
-
 //
-//  WSLineChartView.m
-//  WSLineChart
+//  WSLineView.m
+//  3333
 //
-//  Created by iMac on 16/11/17.
+//  Created by iMac on 16/11/10.
 //  Copyright © 2016年 zws. All rights reserved.
 //
 
 #import "WSLineChartView.h"
-#import "SVProgressHUD.h"
-#import "XAxisView.h"
 #import "YAxisView.h"
+#import "XAxisView.h"
+#import "SVProgressHUD.h"
+
 
 #define leftMargin 45
 //#define defaultSpace 5
-#define lastSpace 50
+#define lastSpace 10
 
 
 
@@ -24,23 +24,24 @@
 @property (strong, nonatomic) NSArray *yValueArray;
 @property (assign, nonatomic) CGFloat yMax;
 @property (assign, nonatomic) CGFloat yMin;
+@property (strong, nonatomic) NSString *xTypeName;
+@property (strong, nonatomic) NSString *yTypeName;
+@property (strong, nonatomic) NSString *unit;
+
 @property (strong, nonatomic) YAxisView *yAxisView;
 @property (strong, nonatomic) XAxisView *xAxisView;
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (assign, nonatomic) CGFloat pointGap;
-@property (assign, nonatomic) CGFloat defaultSpace;//间距
+@property (assign, nonatomic) CGFloat defaultSpace;//X轴点之间的间隔
 
 @property (assign, nonatomic) CGFloat moveDistance;
 
 @end
 
-
-
-
 @implementation WSLineChartView
 
-- (id)initWithFrame:(CGRect)frame xTitleArray:(NSArray*)xTitleArray yValueArray:(NSArray*)yValueArray yMax:(CGFloat)yMax yMin:(CGFloat)yMin {
-    
+- (id)initWithFrame:(CGRect)frame xTitleArray:(NSArray*)xTitleArray yValueArray:(NSArray*)yValueArray yMax:(CGFloat)yMax yMin:(CGFloat)yMin yTypeName:(NSString*)yTypeName xTypeName:(NSString*)xTypeName  unit:(NSString*)unit {
+
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
@@ -49,7 +50,10 @@
         self.yValueArray = yValueArray;
         self.yMax = yMax;
         self.yMin = yMin;
-        
+        self.xTypeName = xTypeName;
+        self.yTypeName = yTypeName;
+        self.unit = unit;
+
         if (xTitleArray.count > 600) {
             _defaultSpace = 5;
         }
@@ -62,12 +66,17 @@
         else if (xTitleArray.count > 100 && xTitleArray.count <= 200){
             _defaultSpace = 30;
         }
-        else {
+        else if (xTitleArray.count > 10 && xTitleArray.count <= 100){
             _defaultSpace = 40;
         }
+        else {
+            _defaultSpace = (wsScreenWidth-leftMargin)/xTitleArray.count;
+        }
+
+
+        self.pointGap = (wsScreenWidth-leftMargin)/xTitleArray.count;
         
-        self.pointGap = _defaultSpace;
-        
+
         [self creatYAxisView];
         
         [self creatXAxisView];
@@ -79,11 +88,12 @@
         //长按手势
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(event_longPressAction:)];
         [self.xAxisView addGestureRecognizer:longPress];
+
+        
     }
+    
     return self;
 }
-
-
 
 - (void)creatYAxisView {
     
@@ -97,16 +107,16 @@
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(leftMargin, 0, self.frame.size.width-leftMargin, self.frame.size.height)];
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.bounces = NO;
+    _scrollView.scrollsToTop = NO;
     [self addSubview:_scrollView];
     
-    self.xAxisView = [[XAxisView alloc] initWithFrame:CGRectMake(0, 0, self.xTitleArray.count * self.pointGap + lastSpace, self.frame.size.height) xTitleArray:self.xTitleArray yValueArray:self.yValueArray yMax:self.yMax yMin:self.yMin];
+    self.xAxisView = [[XAxisView alloc] initWithFrame:CGRectMake(0, 0, self.xTitleArray.count * self.pointGap + lastSpace, self.frame.size.height) xTitleArray:self.xTitleArray yValueArray:self.yValueArray yMax:self.yMax yMin:self.yMin yTypeName:self.yTypeName xTypeName:self.xTypeName unit:self.unit];
     
     [_scrollView addSubview:self.xAxisView];
     
     _scrollView.contentSize = self.xAxisView.frame.size;
     
 }
-
 
 // 捏合手势监听方法
 - (void)pinchGesture:(UIPinchGestureRecognizer *)recognizer
@@ -150,14 +160,8 @@
             CGPoint p2 = [recognizer locationOfTouch:1 inView:self.xAxisView];
             CGFloat centerX = (p1.x+p2.x)/2;
             leftMagin = centerX - self.scrollView.contentOffset.x;
-            //            NSLog(@"centerX = %f",centerX);
-            //            NSLog(@"self.scrollView.contentOffset.x = %f",self.scrollView.contentOffset.x);
-            //            NSLog(@"leftMagin = %f",leftMagin);
-            
             
             currentIndex = centerX / self.pointGap;
-            //            NSLog(@"currentIndex = %f",currentIndex);
-            
             
             
             self.pointGap *= recognizer.scale;
@@ -172,10 +176,10 @@
             self.xAxisView.frame = CGRectMake(0, 0, self.xTitleArray.count * self.pointGap + lastSpace, self.frame.size.height);
             
             self.scrollView.contentOffset = CGPointMake(currentIndex*self.pointGap-leftMagin, 0);
-            //            NSLog(@"contentOffset = %f",self.scrollView.contentOffset.x);
-            
+//            NSLog(@"contentOffset = %f",self.scrollView.contentOffset.x);
+
         }
-        
+
         
         
         
@@ -184,8 +188,8 @@
     
     self.scrollView.contentSize = CGSizeMake(self.xAxisView.frame.size.width, 0);
     
-    
-    
+
+
     
 }
 
@@ -215,10 +219,11 @@
         //恢复scrollView的滑动
         [self.xAxisView setIsLongPress:NO];
         [self.xAxisView setIsShowLabel:NO];
-        
+
     }
 }
 
 
 
 @end
+
